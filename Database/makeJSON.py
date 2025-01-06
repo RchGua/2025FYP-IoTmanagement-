@@ -54,12 +54,12 @@ if __name__ ==  "__main__":
     print(makeJSON.speaker("some data",True))
     
     try:
-        client = MongoClient("mongodb+srv://IoTadmin:admin888@maincluster.xh201.mongodb.net/")
-        database  = client.get_database("TestDatabase")
-        collection = database.get_collection("TestCollection")
+        client = MongoClient("mongodb+srv://IoTadmin:admin888@maincluster.xh201.mongodb.net/")#connect to mongodb server
+        database  = client.get_database("TestDatabase")#connect to database
+        collection = database.get_collection("TestCollection")#connect to collection
         print("Connected successfully")
 
-        result = collection.insert_one(makeJSON.speaker("new data",True))
+        result = collection.insert_one(makeJSON.speaker("new data",True))#creat a item in collection
         print(f"speaker inserted with id: {result.inserted_id}")
         print(result.acknowledged)
 
